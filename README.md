@@ -123,9 +123,109 @@ API REST custom con 3 endpoints:
 
 ![API Libros](./assets/img/api-libros.gif)
 
-![API Géneros](./assets/img/api-generos.gif)
+---
 
-![API Filtro](./assets/img/api-filtro.gif)
+## 🛠 Ejemplos de Respuesta JSON
+
+### 1. Generos (`GET /generos`)
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 5,
+      "nombre": "Biografía",
+      "slug": "biografia",
+      "descripcion": "Historias de vida de personas reales",
+      "count": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Ficción",
+      "slug": "ficcion",
+      "descripcion": "Obras de imaginación narrativa",
+      "count": 3
+    },
+    {
+      "id": 3,
+      "nombre": "No Ficción",
+      "slug": "no-ficcion",
+      "descripcion": "Obras basadas en hechos reales",
+      "count": 1
+    },
+    {
+      "id": 4,
+      "nombre": "Técnico",
+      "slug": "tecnico",
+      "descripcion": "Libros técnicos y manuales",
+      "count": 1
+    }
+  ]
+}
+```
+
+### 2. Detalle de Libro (`GET /libros/35`)
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": 35,
+    "titulo": "Attack on Titan: Lost Girls (Novela)",
+    "slug": "attack-on-titan-lost-girls-novela",
+    "contenido": "",
+    "excerpt": "Novela ligera spin-off de la aclamada serie Attack on Titan. Esta obra profundiza en las historias no contadas de Annie Leonhart y Mikasa Ackerman, explorando sus motivaciones y el mundo cruel en el que viven más allá de la trama principal.",
+    "fecha_publicacion": "2026-01-20",
+    "link": "http://localhost:8080/libros/attack-on-titan-lost-girls-novela/",
+    "imagen_url": "http://localhost:8080/wp-content/uploads/2026/01/attack-on-titan-lost-girls.jpg",
+    "generos": ["ficcion"],
+    "autores": ["Hiroshi Seko / Hajime Isayama"],
+    "precio": 25000,
+    "en_oferta": false,
+    "precio_oferta": null,
+    "stock": 3,
+    "paginas": 224,
+    "isbn": "978-84-679-3142-6",
+    "editorial": "Penguin random house",
+    "ano_publicacion": 2018,
+    "resenas": [],
+    "rating_promedio": 0,
+    "total_resenas": 0
+  }
+}
+```
+
+### 3. Búsqueda (`GET /libros?search=confesion`)
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 30,
+      "titulo": "Confesión",
+      "slug": "confesion",
+      "excerpt": "La autobiografía definitiva del legendario vocalista de Judas Priest. Un relato crudo, honesto y conmovedor sobre la vida en la carretera, la historia del heavy&hellip;",
+      "link": "http://localhost:8080/libros/confesion/",
+      "imagen_url": "http://localhost:8080/wp-content/uploads/2026/01/RHalfordConfessBook400-196x300.jpg",
+      "generos": ["biografia"],
+      "autores": ["Rob Halford"],
+      "precio": 72000,
+      "en_oferta": false,
+      "precio_oferta": null,
+      "paginas": 380,
+      "isbn": "978-84-17645-15-1"
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "pages": 1,
+    "current_page": 1,
+    "per_page": 10
+  }
+}
+```
 
 ---
 
