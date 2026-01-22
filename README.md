@@ -373,7 +373,10 @@ Ver archivo [RESPUESTAS.md](./RESPUESTAS.md) con las respuestas a las preguntas 
 
 Para este proyecto se utilizó asistencia de IA como herramienta de productividad en las siguientes áreas:
 
+- **Organización de archivos SCSS/BEM:** Sugerencias para estructura de carpetas y modularización.
+- **Animaciones CSS:** Asistencia en la creación del efecto mesh gradient.
+- **Estructura base de documentación:** Boilerplate inicial de README.md.
+- **Debugging:** Análisis de scope de variables PHP en templates.
 - **Generación de JSON para ACF:** Creación de la estructura de campos personalizados bajo supervisión.
 - **Boilerplate de Código:** Scaffolding inicial para Custom Post Types y Taxonomías en `functions.php`/`inc`.
 - **Datos de Prueba:** Generación de contenido "dummy" (títulos, sinopsis) para poblar la base de datos.
-- **Organización SCSS:** Sugerencias para estructura de carpetas BEM.
