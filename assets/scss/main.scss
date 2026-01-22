@@ -1,0 +1,191 @@
+// ==========================================
+// MAIN SCSS IMPORTS
+// ==========================================
+
+// 1. Configuración y Helpers (Variables, Mixins)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// 2. Base (Reset, Tipografía)
+@import 'base/reset';
+@import 'base/typography';
+
+// 3. Componentes (BEM)
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/badges';
+@import 'components/pagination';
+@import 'components/empty-state';
+
+// 4. Layouts
+@import 'layout/grid';
+@import 'layout/header';
+
+// 5. Pages
+@import 'pages/single';
+
+// =========================================
+// RESEÑAS SECCIÓN
+// =========================================
+
+.libro-resenas {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+
+  &__titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: $color-text;
+    border-left: 5px solid $color-primary;
+    padding-left: 1rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  &__vacio {
+    font-style: italic;
+    color: lighten($color-text, 40%);
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+}
+
+.resena-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 0.8rem;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    img {
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__autor {
+    font-weight: 700;
+    color: $color-text;
+    font-size: 1rem;
+  }
+
+  &__stars {
+    color: #ffc107; // Amarillo Star
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    
+    .star.empty {
+      color: #e0e0e0;
+    }
+  }
+
+  &__body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: lighten($color-text, 20%);
+    
+    p {
+      margin: 0;
+    }
+  }
+}
+
+// Ajuste para el formulario nativo (simple cleanup)
+.libro-resenas__accion {
+  margin-top: 2rem;
+}
+
+.comment-respond {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  border: 1px solid #eee;
+
+  h3 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  textarea, input[type="text"], input[type="email"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+  
+  textarea {
+    min-height: 100px;
+  }
+
+  .submit {
+    margin-top: 1.5rem;
+    background: $color-primary;
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+
+    &:hover {
+      background: darken($color-primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba($color-primary, 0.3);
+    }
+  }
+}

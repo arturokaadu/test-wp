@@ -1,0 +1,176 @@
+// ==========================================
+// SINGLE LIBRO (Detalle)
+// ==========================================
+
+.btn-volver {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  background: transparent;
+  border: none;
+  color: $color-text-light;
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+
+  &__icono {
+    font-size: 1em;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: $color-primary;
+
+    .btn-volver__icono {
+      transform: translateX(-3px);
+    }
+  }
+}
+
+.libro-detalle {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+
+  @include desktop {
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+  }
+
+  // --- Columna Imagen ---
+  &__imagen {
+    position: relative;
+    
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: block;
+    }
+  }
+
+  // --- Columna Info ---
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__titulo {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: $color-text;
+    font-weight: 800;
+  }
+
+  &__meta {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+
+    .libro-badge {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    p {
+      margin: 0;
+      color: $color-text-light;
+      font-size: 0.95rem;
+    }
+  }
+
+  // Precio Box (Reutilizando estilos de card pero más grande)
+  .libro-card__precio-box {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: $color-secondary;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    .libro-card__precio {
+      font-size: 2rem;
+      font-weight: 800;
+      color: $color-primary;
+
+      &--tachado {
+        font-size: 1.2rem;
+        color: $color-text-light;
+        margin-right: 0.5rem;
+      }
+      
+      &--oferta {
+        color: $color-danger;
+      }
+    }
+  }
+
+  &__descripcion {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: lighten($color-text, 10%);
+    margin-bottom: 2rem;
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__extra {
+    margin-top: auto; // Empujar al fondo si sobra espacio
+    padding-top: 1.5rem;
+    border-top: 1px solid $color-border;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: $color-text-light;
+
+      strong {
+        display: block;
+        color: $color-text;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
+
+// Separador visual
+.separador {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, $color-border, transparent);
+  margin: 3rem 0;
+}
+
+// Título de Relacionados
+.libros-relacionados {
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $color-secondary;
+    display: inline-block;
+  }
+}

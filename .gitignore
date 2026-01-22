@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Build outputs (keep libros.css in repo since it's required)
+
+# WordPress core (only theme files tracked)
+wp-admin/
+wp-includes/
+wp-content/plugins/
+wp-content/uploads/
+wp-content/themes/*/
+
+# Local development
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+
+# Evidence/Testing (optional - remove if you want to include)
+evidence/
+capture_evidence.js

@@ -1,0 +1,237 @@
+[
+    {
+        "key": "group_libro_info_basica",
+        "title": "Información Básica",
+        "fields": [
+            {
+                "key": "field_isbn",
+                "label": "ISBN",
+                "name": "isbn",
+                "type": "text",
+                "required": 1,
+                "placeholder": "978-84-376-0494-7",
+                "instructions": "Código ISBN del libro (13 dígitos)"
+            },
+            {
+                "key": "field_ano_publicacion",
+                "label": "Año de Publicación",
+                "name": "ano_publicacion",
+                "type": "number",
+                "required": 0,
+                "min": 1900,
+                "max": 2025,
+                "placeholder": "2024"
+            },
+            {
+                "key": "field_editorial",
+                "label": "Editorial",
+                "name": "editorial",
+                "type": "text",
+                "required": 0,
+                "placeholder": "Penguin Random House"
+            },
+            {
+                "key": "field_paginas",
+                "label": "Páginas",
+                "name": "paginas",
+                "type": "number",
+                "required": 0,
+                "min": 1,
+                "placeholder": "350"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "libro"
+                }
+            ]
+        ],
+        "position": "normal",
+        "style": "default",
+        "menu_order": 0
+    },
+    {
+        "key": "group_libro_comercial",
+        "title": "Información Comercial",
+        "fields": [
+            {
+                "key": "field_precio",
+                "label": "Precio",
+                "name": "precio",
+                "type": "number",
+                "required": 1,
+                "min": 0,
+                "placeholder": "25000",
+                "prepend": "$",
+                "instructions": "Precio en pesos (sin puntos ni comas)"
+            },
+            {
+                "key": "field_stock_disponible",
+                "label": "Stock Disponible",
+                "name": "stock_disponible",
+                "type": "number",
+                "required": 0,
+                "default_value": 0,
+                "min": 0
+            },
+            {
+                "key": "field_en_oferta",
+                "label": "En Oferta",
+                "name": "en_oferta",
+                "type": "true_false",
+                "default_value": 0,
+                "ui": 1,
+                "ui_on_text": "Sí",
+                "ui_off_text": "No"
+            },
+            {
+                "key": "field_precio_oferta",
+                "label": "Precio Oferta",
+                "name": "precio_oferta",
+                "type": "number",
+                "required": 0,
+                "min": 0,
+                "prepend": "$",
+                "instructions": "Solo visible si 'En Oferta' está activado",
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_en_oferta",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "libro"
+                }
+            ]
+        ],
+        "position": "normal",
+        "style": "default",
+        "menu_order": 1
+    },
+    {
+        "key": "group_libro_multimedia",
+        "title": "Multimedia",
+        "fields": [
+            {
+                "key": "field_portada_alternativa",
+                "label": "Portada Alternativa",
+                "name": "portada_alternativa",
+                "type": "image",
+                "required": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all",
+                "instructions": "Imagen alternativa para la portada"
+            },
+            {
+                "key": "field_pdf_preview",
+                "label": "PDF Preview",
+                "name": "pdf_preview",
+                "type": "file",
+                "required": 0,
+                "return_format": "array",
+                "library": "all",
+                "mime_types": "pdf",
+                "max_size": 5,
+                "instructions": "Vista previa del libro (máx 5MB, solo PDF)"
+            },
+            {
+                "key": "field_galeria_imagenes",
+                "label": "Galería de Imágenes",
+                "name": "galeria_imagenes",
+                "type": "gallery",
+                "required": 0,
+                "return_format": "array",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min": 0,
+                "max": 10,
+                "instructions": "Imágenes adicionales del libro (máx 10)"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "libro"
+                }
+            ]
+        ],
+        "position": "normal",
+        "style": "default",
+        "menu_order": 2
+    },
+    {
+        "key": "group_libro_resenas",
+        "title": "Reseñas",
+        "fields": [
+            {
+                "key": "field_resenas",
+                "label": "Reseñas",
+                "name": "resenas",
+                "type": "repeater",
+                "required": 0,
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Agregar Reseña",
+                "sub_fields": [
+                    {
+                        "key": "field_resena_nombre",
+                        "label": "Nombre del Reviewer",
+                        "name": "nombre_del_reviewer",
+                        "type": "text",
+                        "required": 1,
+                        "placeholder": "Juan Pérez"
+                    },
+                    {
+                        "key": "field_resena_rating",
+                        "label": "Rating",
+                        "name": "rating",
+                        "type": "range",
+                        "required": 0,
+                        "default_value": 3,
+                        "min": 1,
+                        "max": 5,
+                        "step": 1,
+                        "prepend": "⭐"
+                    },
+                    {
+                        "key": "field_resena_comentario",
+                        "label": "Comentario",
+                        "name": "comentario",
+                        "type": "textarea",
+                        "required": 0,
+                        "rows": 4,
+                        "placeholder": "Escribe tu opinión sobre el libro..."
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "libro"
+                }
+            ]
+        ],
+        "position": "normal",
+        "style": "default",
+        "menu_order": 3
+    }
+]

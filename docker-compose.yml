@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    container_name: biblioteca-wordpress
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+    volumes:
+      # Monta el tema directamente en wp-content/themes
+      - .:/var/www/html/wp-content/themes/biblioteca-wordpress
+    depends_on:
+      - db
+    networks:
+      - biblioteca-network
+
+  db:
+    image: mysql:8.0
+    container_name: biblioteca-db
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+      MYSQL_ROOT_PASSWORD: rootpassword
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - biblioteca-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: biblioteca-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    depends_on:
+      - db
+    networks:
+      - biblioteca-network
+
+volumes:
+  db_data:
+
+networks:
+  biblioteca-network:
+    driver: bridge

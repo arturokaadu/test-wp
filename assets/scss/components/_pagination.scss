@@ -1,0 +1,39 @@
+// ==========================================
+// PAGINATION
+// ==========================================
+
+.biblioteca-paginacion {
+    margin-top: $spacing-xl;
+    @include flex-center;
+    gap: $spacing-xs;
+
+    .page-numbers {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 40px;
+        height: 40px;
+        padding: 0 $spacing-xs;
+        background: $color-white;
+        border: 1px solid $color-border;
+        border-radius: $border-radius-md;
+        color: $color-text;
+        font-weight: $font-weight-medium;
+        transition: all 0.2s;
+
+        &:hover, &.current {
+            background-color: $color-primary;
+            color: $color-white;
+            border-color: $color-primary;
+        }
+
+        &.dots {
+            border: none;
+            background: transparent;
+            &:hover {
+                background: transparent;
+                color: $color-text;
+            }
+        }
+    }
+}

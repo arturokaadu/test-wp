@@ -1,0 +1,55 @@
+// ==========================================
+// RESET & BASE
+// ==========================================
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    color: $color-text;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    
+    // Animated Mesh Gradient Background - Más visible
+    background: linear-gradient(-45deg, #e8f4f8, #f0e6f6, #e6f0f8, #f8f0e6);
+    background-size: 400% 400%;
+    animation: meshGradient 12s ease infinite;
+}
+
+@keyframes meshGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

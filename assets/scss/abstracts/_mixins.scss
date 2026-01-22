@@ -1,0 +1,41 @@
+// ==========================================
+// MIXINS
+// ==========================================
+
+// 📱 Media Queries
+@mixin mobile {
+    @media (max-width: 767px) { @content; }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) and (max-width: 1023px) { @content; }
+}
+
+@mixin desktop {
+    @media (min-width: 1024px) { @content; }
+}
+
+// ✨ Flexbox Helpers
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+// 🔳 Grid
+@mixin grid($cols: 3, $gap: $spacing-md) {
+    display: grid;
+    grid-template-columns: repeat($cols, 1fr);
+    gap: $gap;
+}

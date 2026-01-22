@@ -1,0 +1,46 @@
+// ==========================================
+// BUTTONS
+// ==========================================
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius-md;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+    }
+
+    &--primary {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &:hover {
+            background-color: $color-primary-dark;
+            color: $color-white;
+        }
+    }
+
+    &--secondary {
+        background-color: $color-white;
+        color: $color-text;
+        border: 1px solid $color-border;
+
+        &:hover {
+            background-color: darken($color-white, 2%);
+            color: $color-primary;
+            border-color: $color-primary;
+        }
+    }
+
+    &--full {
+        width: 100%;
+    }
+}

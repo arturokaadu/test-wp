@@ -1,0 +1,16 @@
+{
+  "name": "biblioteca-wordpress",
+  "version": "1.0.0",
+  "description": "Tema hijo custom para desafío técnico WordPress",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "sass assets/scss/main.scss assets/css/libros.css --no-source-map",
+    "watch:css": "sass --watch assets/scss/main.scss assets/css/libros.css --no-source-map"
+  },
+  "author": "Arturo Kaadú",
+  "license": "ISC",
+  "devDependencies": {
+    "puppeteer": "^24.35.0",
+    "sass": "^1.70.0"
+  }
+}

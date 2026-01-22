@@ -1,0 +1,25 @@
+// ==========================================
+// HEADER
+// ==========================================
+
+.biblioteca-header {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+
+    .biblioteca-titulo {
+        font-size: 3rem;
+        background: linear-gradient(135deg, $color-primary, $color-primary-dark);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: $spacing-sm;
+
+        @include mobile {
+            font-size: 2rem;
+        }
+    }
+
+    .biblioteca-descripcion {
+        font-size: 1.25rem;
+        color: $color-text-light;
+    }
+}

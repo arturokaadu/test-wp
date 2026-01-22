@@ -1,0 +1,32 @@
+// ==========================================
+// EMPTY STATE
+// ==========================================
+
+.biblioteca-sin-resultados {
+    text-align: center;
+    padding: $spacing-xl;
+    background: $color-white;
+    border-radius: $border-radius-lg;
+    border: 1px dashed $color-border;
+    margin-top: $spacing-lg;
+
+    .sin-resultados-icono {
+        font-size: 4rem;
+        margin-bottom: $spacing-md;
+    }
+
+    h2 {
+        color: $color-text;
+        margin-bottom: $spacing-sm;
+    }
+
+    a {
+        color: $color-primary;
+        font-weight: $font-weight-medium;
+        text-decoration: underline;
+        
+        &:hover {
+            color: $color-primary-dark;
+        }
+    }
+}
