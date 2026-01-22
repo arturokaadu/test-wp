@@ -371,9 +371,9 @@ Ver archivo [RESPUESTAS.md](./RESPUESTAS.md) con las respuestas a las preguntas 
 
 ## Anexo: Uso de Herramientas de IA
 
-Para este proyecto se utilizó asistencia de IA en las siguientes áreas:
+Para este proyecto se utilizó asistencia de IA como herramienta de productividad en las siguientes áreas:
 
-- Organización de archivos SCSS/BEM
-- Animaciones CSS (mesh gradient)
-- Estructura base de documentación
-- Debugging de scope de variables PHP
+- **Generación de JSON para ACF:** Creación de la estructura de campos personalizados bajo supervisión.
+- **Boilerplate de Código:** Scaffolding inicial para Custom Post Types y Taxonomías en `functions.php`/`inc`.
+- **Datos de Prueba:** Generación de contenido "dummy" (títulos, sinopsis) para poblar la base de datos.
+- **Organización SCSS:** Sugerencias para estructura de carpetas BEM.
