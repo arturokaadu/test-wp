@@ -3,10 +3,14 @@
 // ==========================================
 
 .biblioteca-filtros {
-    background: $color-white;
+    // Glassmorphism Dark
+    background: rgba(23, 25, 35, 0.7); // Dark background
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
     padding: $spacing-lg;
     border-radius: $border-radius-lg;
-    box-shadow: $shadow-sm;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     margin-bottom: $spacing-xl;
     
     // Grid de filtros
@@ -31,26 +35,26 @@
     label {
         font-size: 0.875rem;
         font-weight: $font-weight-medium;
-        color: $color-text;
+        color: #e2e8f0; // Text light
         margin-bottom: $spacing-xs;
     }
 
     input, select {
         width: 100%;
         padding: 0.75rem;
-        border: 1px solid $color-border;
-        border-radius: $border-radius-md;
-        font-size: 1rem;
-        transition: border-color 0.2s;
-        
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
         &:focus {
             outline: none;
             border-color: $color-primary;
-            box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+            box-shadow: 0 0 0 3px rgba($color-primary, 0.3);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         &::placeholder {
-            color: lighten($color-text-light, 20%);
+            color: rgba(255, 255, 255, 0.4);
         }
     }
 }

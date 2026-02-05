@@ -51,7 +51,7 @@ function biblioteca_enqueue_styles()
             'libros-css',                                           // Handle (identificador único)
             get_template_directory_uri() . '/assets/css/libros.css', // URL del archivo
             [],                                                      // Dependencias (ninguna)
-            '1.0.0'                                                  // Versión (para cache busting)
+            time() + 9                                              // Versión (Cache busting: time())
         );
     }
 }

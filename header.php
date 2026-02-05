@@ -9,3 +9,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <div class="stars-background">
+        <div class="stars-background__layer stars-background__layer--small"></div>
+        <div class="stars-background__layer stars-background__layer--medium"></div>
+        <div class="stars-background__layer stars-background__layer--big"></div>
+    </div>

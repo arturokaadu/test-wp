@@ -16,23 +16,10 @@ body {
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
     
-    // Animated Mesh Gradient Background - Más visible
-    background: linear-gradient(-45deg, #e8f4f8, #f0e6f6, #e6f0f8, #f8f0e6);
-    background-size: 400% 400%;
-    animation: meshGradient 12s ease infinite;
+    // Background manejado por .stars-background
+    // background: linear-gradient(-45deg, #e8f4f8, #f0e6f6, #e6f0f8, #f8f0e6);
 }
 
-@keyframes meshGradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
 
 a {
     text-decoration: none;

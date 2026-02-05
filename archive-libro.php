@@ -39,7 +39,8 @@ get_header();  // Incluye header.php del tema
 
         // Obtener valores actuales de la URL (ya sanitizados)
         $filtro_genero     = isset($_GET['genero']) ? sanitize_text_field($_GET['genero']) : '';
-        $filtro_precio_max = isset($_GET['precio_max']) ? floatval($_GET['precio_max']) : '';
+        // Fix: Verificar !empty para evitar que floatval("") devuelva 0 y sature el input
+        $filtro_precio_max = !empty($_GET['precio_max']) ? floatval($_GET['precio_max']) : '';
         $filtro_busqueda   = isset($_GET['busqueda']) ? sanitize_text_field($_GET['busqueda']) : '';
         ?>
 
@@ -99,7 +100,7 @@ get_header();  // Incluye header.php del tema
             <!-- Botones -->
             <div class="filtro-botones">
                 <button type="submit" class="btn btn-primary">Filtrar</button>
-                <a href="<?php echo esc_url(get_post_type_archive_link('libro')); ?>" class="btn btn-secondary">
+                <a href="<?php echo esc_url(get_post_type_archive_link('libro')); ?>" class="btn btn-secondary" style="color: #ffffff !important;">
                     Limpiar filtros
                 </a>
             </div>
@@ -140,14 +141,32 @@ get_header();  // Incluye header.php del tema
         }
 
         // Agregar filtro por precio máximo (meta field de ACF)
+        // Agregar filtro por precio máximo (Considerando OFERTAS)
         if (!empty($filtro_precio_max)) {
             $args['meta_query'] = [
+                'relation' => 'OR',
+                // Opción 1: Precio normal es menor al filtro (y no es oferta o lo que sea)
                 [
                     'key'     => 'precio',
                     'value'   => $filtro_precio_max,
                     'compare' => '<=',
                     'type'    => 'NUMERIC',
                 ],
+                // Opción 2: Es oferta Y el precio oferta es menor al filtro
+                [
+                    'relation' => 'AND',
+                    [
+                        'key'     => 'en_oferta',
+                        'value'   => '1', // ACF True
+                        'compare' => '=',
+                    ],
+                    [
+                        'key'     => 'precio_oferta',
+                        'value'   => $filtro_precio_max,
+                        'compare' => '<=',
+                        'type'    => 'NUMERIC',
+                    ]
+                ]
             ];
         }
 

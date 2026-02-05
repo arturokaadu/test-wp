@@ -3,27 +3,21 @@
 // ==========================================
 
 .btn-volver {
+  @extend .btn;
+  @extend .btn--secondary;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem 0;
-  background: transparent;
-  border: none;
-  color: $color-text-light;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  width: auto;
   text-decoration: none;
-  font-weight: $font-weight-medium;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
 
   &__icono {
-    font-size: 1em;
+    font-size: 1.1em;
     transition: transform 0.2s ease;
   }
 
   &:hover {
-    color: $color-primary;
-
     .btn-volver__icono {
       transform: translateX(-3px);
     }
@@ -35,10 +29,13 @@
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  background: rgba(23, 25, 35, 0.7); // Dark Glass
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 16px; // Más redondeado
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: #fff; // Texto base blanco
 
   @include desktop {
     grid-template-columns: 350px 1fr;
@@ -68,8 +65,9 @@
     font-size: 2.5rem;
     line-height: 1.2;
     margin-bottom: 1rem;
-    color: $color-text;
+    color: #fff; // Título Blanco
     font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   }
 
   &__meta {
@@ -145,7 +143,7 @@
 
       strong {
         display: block;
-        color: $color-text;
+        color: #fff; // Strong blanco
         text-transform: uppercase;
         font-size: 0.75rem;
         letter-spacing: 1px;
@@ -172,5 +170,6 @@
     padding-bottom: 0.5rem;
     border-bottom: 2px solid $color-secondary;
     display: inline-block;
+    color: #fff; // Blanco
   }
 }
